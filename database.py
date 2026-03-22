@@ -1,7 +1,7 @@
 import sqlite3
 
 def create_connection():
-    conn = sqlite3.connect("students.db")
+    conn = sqlite3.connect("/tmp/students.db")
     return conn
 
 def create_table():
