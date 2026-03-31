@@ -1,9 +1,11 @@
 import sqlite3
 
+# ------------------ Database Connection ------------------ #
 def create_connection():
     conn = sqlite3.connect("/tmp/students.db")
     return conn
 
+# ------------------ Table Creation ------------------ #
 def create_table():
     conn = create_connection()
     cursor = conn.cursor()
@@ -19,6 +21,7 @@ def create_table():
     conn.commit()
     conn.close()
 
+# ------------------ Add Student ------------------ #
 def add_student(name, age, grade, email):
     conn = create_connection()
     cursor = conn.cursor()
@@ -27,6 +30,7 @@ def add_student(name, age, grade, email):
     conn.commit()
     conn.close()
 
+# ------------------ Get All Students ------------------ #
 def get_all_students():
     conn = create_connection()
     cursor = conn.cursor()
@@ -35,6 +39,7 @@ def get_all_students():
     conn.close()
     return data
 
+# ------------------ Search Student ------------------ #
 def search_student(name):
     conn = create_connection()
     cursor = conn.cursor()
@@ -43,6 +48,7 @@ def search_student(name):
     conn.close()
     return data
 
+# ------------------ Update Student ------------------ #
 def update_student(student_id, name, age, grade, email):
     conn = create_connection()
     cursor = conn.cursor()
@@ -51,6 +57,7 @@ def update_student(student_id, name, age, grade, email):
     conn.commit()
     conn.close()
 
+# ------------------ Delete Student ------------------ #
 def delete_student(student_id):
     conn = create_connection()
     cursor = conn.cursor()
@@ -58,4 +65,18 @@ def delete_student(student_id):
     conn.commit()
     conn.close()
 
+# ------------------ Reset Students (Fresh Start) ------------------ #
+def reset_students():
+    """
+    Deletes all student records and resets the AUTOINCREMENT counter.
+    Use this for testing/demo purposes only.
+    """
+    conn = create_connection()
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM students")  # Delete all data
+    cursor.execute("DELETE FROM sqlite_sequence WHERE name='students'")  # Reset AUTOINCREMENT
+    conn.commit()
+    conn.close()
+
+# ------------------ Initialize Table ------------------ #
 create_table()
