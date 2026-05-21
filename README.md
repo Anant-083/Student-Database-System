@@ -1,31 +1,50 @@
 # 🎓 Student Database System
 
-A simple Student Database System built with Python, SQLite and Streamlit.
+A full-featured Student Database System built with Python, SQLite, and Streamlit — with a clean, modern UI.
 
 ## 🔗 Live Demo
 [Click here to view the app](https://student-database-system-wsmfcwy6czx6lecnjqcb26.streamlit.app/)
 
+> ⚠️ **Note:** Data resets when the app goes to sleep on Streamlit Cloud (free tier limitation).
+
 ## ✨ Features
-- Add new students
-- View all students
-- Search students by name
-- Update student information
-- Delete students
+- ➕ Add new students
+- 👀 View all students in a table
+- 🔍 Search students by name (partial match supported)
+- ✏️ Update student information by ID
+- 🗑️ Delete students by ID
+- 📊 Live student count in sidebar
 
 ## 🛠️ Tech Stack
-- Python
-- SQLite
-- Streamlit
+| Tool | Purpose |
+|------|---------|
+| Python | Core language |
+| SQLite | Local database |
+| Streamlit | Web UI framework |
+| Pandas | Table display |
 
 ## 📁 Project Structure
-- `app.py` → Main Streamlit UI
-- `database.py` → Database logic (CRUD operations)
-
-## 🚀 How to Run Locally
-```bash
-pip install streamlit
-streamlit run app.py
+student-database/
+│
+├── app.py           → Main Streamlit UI
+├── database.py      → Database logic (CRUD operations)
+├── requirements.txt
+└── README.md
+## 📁 Project Structure
+~~~
+student-database/
+│
+├── app.py           → Main Streamlit UI
+├── database.py      → Database logic (CRUD operations)
+├── requirements.txt
+└── README.md
+~~~
+## 📦 Requirements
 ```
+streamlit
+pandas
+```
+---
 
 ## 👨‍💻 Built by
-[Anant](https://github.com/Anant-083)
+[Anant](https://github.com/Anant-083) — B.Tech CSE (AI & ML), Brainware University
